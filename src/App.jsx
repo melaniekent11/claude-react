@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDarkMode } from "./hooks/useDarkMode";
+import DarkModeToggle from "./components/DarkModeToggle";
 import TodoList from "./TodoList";
 
 export default function App() {
@@ -11,5 +12,10 @@ export default function App() {
     root.classList.toggle("light", theme === "light");
   }, [theme]);
 
-  return <TodoList />;
+  return (
+    <>
+      <DarkModeToggle isDark={theme === "dark"} toggleTheme={toggleTheme} />
+      <TodoList />
+    </>
+  );
 }
